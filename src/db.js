@@ -3,10 +3,27 @@ const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST,
+  DB_USER, DB_PASSWORD, DB_HOST, DB_DEPLOY
 } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
+// FOR LOCAL DATABASE
+
+// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
+//   dialect: 'postgres',
+//   protocol: 'postgres',
+//   logging: false,
+//   dialectOptions: {
+//     charset: 'utf8mb4',
+//     collate: 'utf8mb4_general_ci',
+//   },
+//   define: {
+//     charset: 'utf8mb4',
+//     collate: 'utf8mb4_general_ci',
+//     timestamps: true,
+//   },
+// });
+
+const sequelize = new Sequelize(DB_DEPLOY, {
   dialect: 'postgres',
   protocol: 'postgres',
   logging: false,
@@ -20,6 +37,7 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
     timestamps: true,
   },
 });
+
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
