@@ -30,6 +30,9 @@ const sequelize = new Sequelize(DB_DEPLOY, {
   dialectOptions: {
     charset: 'utf8mb4',
     collate: 'utf8mb4_general_ci',
+    ssl: {
+      require: true
+    }
   },
   define: {
     charset: 'utf8mb4',
