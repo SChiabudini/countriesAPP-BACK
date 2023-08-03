@@ -9,7 +9,7 @@ const saveCountries = async (Country) => {
             return{
                 id: country.cca3,
                 name: country.name.common,
-                flag: country.flags[0],
+                flag: country.flags && country.flags.length ? country.flags[0] : 'No tiene bandera',
                 continent: country.continents[0],
                 capital: country.capital && country.capital[0] ? country.capital[0] : 'No tiene capital',
                 subregion: country?.subregion,
