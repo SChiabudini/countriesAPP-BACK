@@ -3,7 +3,7 @@ const axios = require('axios');
 const saveCountries = async (Country) => {
 
     try {
-        const { data } = await axios('https://rest-countries.up.railway.app/v3/all');
+        const { data } = await axios('https://restcountries.com/v3.1/all');
 
         const countries = data.map(country => {
             return{
