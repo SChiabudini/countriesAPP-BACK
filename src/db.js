@@ -31,7 +31,7 @@ const sequelize = new Sequelize(DB_DEPLOY, {
     charset: 'utf8mb4',
     collate: 'utf8mb4_general_ci',
     ssl: {
-      require: true
+      rejectUnauthorized: false
     }
   },
   define: {
